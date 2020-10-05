@@ -50,6 +50,11 @@ Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'Townk/vim-autoclose'
 Plug 'rakr/vim-one'
+Plug 'ryanoasis/vim-devicons'
+
+Plug 'tsony-tsonev/nerdtree-git-plugin'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 call plug#end()
 
@@ -109,7 +114,7 @@ nnoremap <Leader>- :vertical resize -5<CR>
 nnoremap <Leader>rp :resize 100<CR>
 
 nnoremap <Leader>f :NERDTreeFind<CR>
-nnoremap <leader>q :NERDTreeToggle<CR>
+nnoremap <leader>n :NERDTreeToggle<CR>
 
 noremap <leader>1 1gt
 noremap <leader>2 2gt
@@ -125,9 +130,8 @@ noremap <leader>0 :tablast<cr>
 
 inoremap <C-c> <esc>
 
-command! -nargs=0 Prettier :CocCommand prettier.formatFile
-inoremap <silent><expr> <C-space> coc#refresh()
-
+nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
 " GoTo code navigation.
 nmap <leader>gd <Plug>(coc-definition)
 nmap <leader>gy <Plug>(coc-type-definition)
@@ -149,3 +153,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") && v:this_session == "" | NERDTree | endif
+
+let g:prettier#quickfix_enabled = 0
+
+
